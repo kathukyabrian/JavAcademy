@@ -1,6 +1,8 @@
 package com.company;
 
-public class Annotate {
+import java.lang.annotation.Documented;
+
+public class Annotate extends AnnotateParent {
     // testing deprecated methods
     @Deprecated
     public static void printUser(String name){
@@ -11,5 +13,10 @@ public class Annotate {
     @SuppressWarnings("deprecation")
     public static void runDeprecated(String name){
         printUser(name);
+    }
+
+    @Override()
+    public void sayHi(String message){
+        System.out.println("Greeting is " +message);
     }
 }
