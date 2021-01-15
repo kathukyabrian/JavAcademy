@@ -22,6 +22,37 @@ public class SimpleThreads {
         }
     }
 
+    private static class CounterLoop implements Runnable{
+        public int c;
+
+        @Override
+        public void run() {
+            try {
+                for(int i=0;i<10;i++){
+                    increment();
+                    Thread.sleep(2000);
+                    threadMessage(String.valueOf(getC()));
+                }
+            }catch (InterruptedException e){
+                threadMessage("I did not finish");
+            }
+
+        }
+
+        public synchronized void increment(){
+            c++;
+        }
+
+        public synchronized void decrement(){
+            c--;
+        }
+
+        public synchronized int getC(){
+            return c;
+        }
+
+    }
+
     public static void main(String[] args) throws InterruptedException {
         long patience = 100*60*60;
         threadMessage("Starting Message Loop Thread");
