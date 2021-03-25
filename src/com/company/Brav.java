@@ -1,12 +1,24 @@
 package com.company;
 
-public class Brav {
-    public int age = 25;
-    public String gender = "Male";
-    public String name = "Dante";
+import java.util.Arrays;
+import java.util.Scanner;
 
-    public void produce(){
-        System.out.println("I am "+name+" and i am "+age+" years old");
-        System.out.println("I am a "+gender);
+public class Brav {
+
+    public static void main(String[] args) {
+
+        // create an array with 10 elements
+
+        String [] names = new String[10];
+
+        for(int i=0;i< names.length;i++){
+            System.out.println("Entry : "+i);
+            Scanner input = new Scanner(System.in);
+            names[i] = input.next();
+        }
+
+        // print the array
+        System.out.println(Arrays.toString(names));
+
     }
 }
